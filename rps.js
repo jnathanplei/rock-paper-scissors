@@ -1,3 +1,4 @@
+
 function computerPlay(max) {
     num = Math.floor(Math.random() * max);
     if (num === 0) {
@@ -25,6 +26,42 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "paper";
-const computerSelection = computerPlay(3);
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    computerScore = 0;
+    playerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+
+        playerSelection = prompt("Enter Rock, Paper, or Scissors");
+        computerSelection = computerPlay(3); 
+        
+        playRound(playerSelection, computerSelection);
+        result = playRound(playerSelection, computerSelection);
+
+        if (result == "You Lose! Paper beats Rock") {
+            computerScore = computerScore + 1;
+        } else if (result == "You Lose! Scissors beat Paper") {
+            computerScore = computerScore + 1;
+        } else if (result == "You Lose! Rock beats Scissors") {
+            computerScore = computerScore + 1;
+        } else {
+            playerScore = playerScore + 1;
+        }
+        console.log("Player Score: " + playerScore)
+        console.log("Computer Score: " + computerScore)
+        console.log("")
+    }
+
+    if (playerScore > computerScore) {
+        return "You Win!"
+    } else {
+        return "Computer Wins!"
+    }
+}
+
+
+
+//const playerSelection = "paper";
+//const computerSelection = computerPlay(3);
+//console.log(playRound(playerSelection, computerSelection));
+
