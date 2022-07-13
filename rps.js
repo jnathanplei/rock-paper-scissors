@@ -50,7 +50,7 @@ function playerRound(playerSelection) {
 }
 
 buttons.forEach(button =>{
-    button.addEventListener('click', function() {
+    button.addEventListener('click', () => {
         playerRound(button.value)
     })
 })
